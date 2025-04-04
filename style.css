@@ -1,3 +1,4 @@
+/* Body and font */
 body {
     background: linear-gradient(135deg, #e3f2fd, #fce4ec, #e8f5e9, #fff9c4);
     font-family: 'Segoe UI', sans-serif;
@@ -44,24 +45,55 @@ body {
     font-size: 16px;
   }
   
-  /* Footer */
+  /* Footer Section */
   footer {
     background-color: #f1f1f1;
     padding: 20px;
     font-size: 14px;
     text-align: center;
-    position: relative;
-    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Footer content layout */
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     width: 100%;
   }
   
-  footer input, footer textarea {
-    width: 80%;
+  /* PC view: footer two-column */
+  @media (min-width: 768px) {
+    .footer-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  
+    .footer-left,
+    .footer-right {
+      width: 45%;
+      text-align: left;
+    }
+  }
+  
+  /* Footer Left */
+  .footer-left p {
+    margin: 8px 0;
+  }
+  
+  /* Input & Comment Box */
+  footer input,
+  footer textarea {
+    width: 100%;
     margin: 8px 0;
     padding: 10px;
     font-size: 14px;
   }
   
+  /* Submit Button */
   footer button {
     padding: 10px 20px;
     background-color: #64b5f6;
@@ -69,10 +101,5 @@ body {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-  }
-  
-  footer a {
-    color: #2196f3;
-    text-decoration: none;
   }
   
