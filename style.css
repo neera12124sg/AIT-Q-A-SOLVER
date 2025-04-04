@@ -1,95 +1,116 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-/* Apply Global Styling */
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #E3F2FD; /* Light Blue Background */
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body styling */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #b3d4fc, #f7c1f7, #d1c2f0, #c2f0c2, #fff6b3);
+    color: #333;
+    padding: 20px;
+  }
+  
+  /* Header */
+  header {
+    background-color: #4a90e2;
+    padding: 20px;
     text-align: center;
-}
-
-/* Heading Style */
-h1 {
-    color: #0D47A1; /* Dark Blue */
-    font-size: 36px;
-    margin-top: 20px;
-}
-
-/* Ask Doubt Section */
-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    margin: 10px;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+  }
+  
+  /* Ask Doubt Section */
+  section {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  #askDoubtBtn {
+    background-color: #ff66b2;
+    color: white;
+    padding: 12px 25px;
     border: none;
-    border-radius: 8px;
+    border-radius: 25px;
+    font-size: 1.1em;
     cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-/* Button Colors */
-button:nth-child(1) { background-color: #2196F3; color: white; } /* Blue */
-button:nth-child(2) { background-color: #FFCDD2; color: black; } /* Light Pink */
-button:nth-child(3) { background-color: #CE93D8; color: black; } /* Light Purple */
-button:nth-child(4) { background-color: #C5E1A5; color: black; } /* Light Green */
-
-button:hover {
-    opacity: 0.8;
-}
-
-/* Contact Section */
-.contact-support {
-    margin-top: 30px;
-    font-size: 24px;
-    color: #0D47A1;
-}
-
-input, textarea {
-    width: 250px;
+    transition: background-color 0.3s;
+  }
+  
+  #askDoubtBtn:hover {
+    background-color: #ff3385;
+  }
+  
+  #subjectList {
+    margin-top: 15px;
+  }
+  
+  #subjectList button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #a64dff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #subjectList button:hover {
+    background-color: #7a33cc;
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #d9f7be;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  footer h3 {
+    margin-bottom: 10px;
+  }
+  
+  footer input,
+  footer textarea {
+    width: 80%;
     padding: 10px;
-    margin: 10px;
-    border: 2px solid #0D47A1;
-    border-radius: 5px;
-}
-
-textarea {
-    height: 80px;
-}
-
-/* Send Button */
-.send-btn {
-    background-color: #FFD54F; /* Light Yellow */
-    color: black;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-}
-
-.send-btn:hover {
-    background-color: #FFC107; /* Darker Yellow */
-}
-
-/* Twitter Link */
-.twitter-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    margin-top: 20px;
-}
-
-.twitter-link img {
-    width: 30px;
-    margin-right: 10px;
-}
-
-.twitter-link a {
+    margin: 8px 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 1em;
+  }
+  
+  footer button[type="submit"] {
+    background-color: #00cc99;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  footer button:hover {
+    background-color: #009973;
+  }
+  
+  footer a {
+    display: block;
+    margin-top: 10px;
+    color: #0066cc;
     text-decoration: none;
-    color: #1DA1F2; /* Twitter Blue */
-    font-weight: bold;
-}
-
-a:hover {
+  }
+  
+  footer a:hover {
     text-decoration: underline;
-}
+  }
+  
