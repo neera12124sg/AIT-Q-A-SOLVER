@@ -7,19 +7,20 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- Navigation Bar -->
-  <nav class="sidebar">
-    <a href="#askDoubtSection">Ask Doubt</a>
-    <a href="#contactSection">Contact</a>
+  <!-- Navigation Sidebar -->
+  <nav>
+    <ul>
+      <li><a href="#" onclick="showSection('askDoubtSection')">Ask Doubt</a></li>
+      <li><a href="#" onclick="showSection('contactSection')">Contact</a></li>
+    </ul>
   </nav>
 
-  <!-- Header -->
+  <!-- Header (Always Visible) -->
   <header>
     <h1>MIT AOE Solver</h1>
   </header>
 
-  <!-- ASK DOUBT Button -->
+  <!-- Ask Doubt Section -->
   <section id="askDoubtSection">
     <button id="askDoubtBtn">ASK DOUBT</button>
     <div id="subjectList" style="display: none;">
@@ -30,16 +31,17 @@
     </div>
   </section>
 
-  <!-- Contact Support -->
-  <footer id="contactSection">
+  <!-- Contact Support Section -->
+  <section id="contactSection">
     <h3>Contact Support</h3>
     <form>
       <input type="email" placeholder="Your Email" required />
       <textarea placeholder="Your Comment" required></textarea>
       <button type="submit">Send</button>
     </form>
-  </footer>
+  </section>
 
+  <!-- External JavaScript File -->
   <script src="script.js"></script>
 </body>
 </html>
