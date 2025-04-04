@@ -31,6 +31,18 @@
       <button>Electronics</button>
       <button>Mechanics</button>
     </div>
+    <!-- Question Form (Hidden Initially) -->
+  <div id="questionForm" style="display: none; margin-top: 20px; text-align: center;">
+    <textarea id="questionInput" placeholder="Type your question here..." rows="4" style="width: 90%; max-width: 500px;"></textarea>
+    <br><br>
+    <input type="file" id="imageUpload" accept="image/*">
+    <br><br>
+    <label><input type="checkbox" id="prefAI"> AI</label>
+    <label><input type="checkbox" id="prefTeacher"> Teacher</label>
+    <label><input type="checkbox" id="prefPeers"> Peers</label>
+    <br><br>
+    <button onclick="submitQuestion()">Submit Question</button>
+  </div>
   </section>
 
   <!-- Contact Support Section -->

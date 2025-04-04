@@ -22,3 +22,36 @@ function showSection(sectionId) {
 
 // Initially show Ask Doubt section
 showSection('askDoubtSection');
+
+// =========================
+// New Code for Question Form
+// =========================
+
+// Show question form when a subject is selected
+const subjectButtons = document.querySelectorAll("#subjectList button");
+const questionForm = document.getElementById("questionForm");
+
+subjectButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    questionForm.style.display = "block";
+  });
+});
+
+// Handle form submission
+function submitQuestion() {
+  const question = document.getElementById("questionInput").value;
+  const image = document.getElementById("imageUpload").files[0];
+  const ai = document.getElementById("prefAI").checked;
+  const teacher = document.getElementById("prefTeacher").checked;
+  const peers = document.getElementById("prefPeers").checked;
+
+  console.log("Question:", question);
+  console.log("Image:", image);
+  console.log("Preferred by:", {
+    AI: ai,
+    Teacher: teacher,
+    Peers: peers
+  });
+
+  alert("Question submitted! (We'll show answers next)");
+}
