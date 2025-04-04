@@ -3,10 +3,24 @@ console.log("MIT AOE Solver Loaded!");
 // Toggle subject list when ASK DOUBT button is clicked
 document.getElementById('askDoubtBtn').addEventListener('click', () => {
   const list = document.getElementById('subjectList');
-  list.style.display = list.style.display === 'none' ? 'block' : 'none';
+  const questionForm = document.getElementById('questionForm');
+
+  const isVisible = list.style.display === 'block';
+  list.style.display = isVisible ? 'none' : 'block';
+
+  // Always hide the question form when toggling
+  questionForm.style.display = 'none';
 });
 
-// Function to show the selected section and hide the other
+// Subject button click logic
+const subjectButtons = document.querySelectorAll('#subjectList button');
+subjectButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    document.getElementById('questionForm').style.display = 'block';
+  });
+});
+
+// Show section logic
 function showSection(sectionId) {
   const askSection = document.getElementById('askDoubtSection');
   const contactSection = document.getElementById('contactSection');
@@ -23,35 +37,20 @@ function showSection(sectionId) {
 // Initially show Ask Doubt section
 showSection('askDoubtSection');
 
-// =========================
-// New Code for Question Form
-// =========================
-
-// Show question form when a subject is selected
-const subjectButtons = document.querySelectorAll("#subjectList button");
-const questionForm = document.getElementById("questionForm");
-
-subjectButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    questionForm.style.display = "block";
-  });
-});
-
-// Handle form submission
+// Dummy submit function (to be updated later)
 function submitQuestion() {
-  const question = document.getElementById("questionInput").value;
-  const image = document.getElementById("imageUpload").files[0];
-  const ai = document.getElementById("prefAI").checked;
-  const teacher = document.getElementById("prefTeacher").checked;
-  const peers = document.getElementById("prefPeers").checked;
+  const question = document.getElementById('questionInput').value;
+  const aiSelected = document.getElementById('prefAI').checked;
+  const teacherSelected = document.getElementById('prefTeacher').checked;
+  const peersSelected = document.getElementById('prefPeers').checked;
 
-  console.log("Question:", question);
-  console.log("Image:", image);
-  console.log("Preferred by:", {
-    AI: ai,
-    Teacher: teacher,
-    Peers: peers
+  console.log("Submitted question:", question);
+  console.log("Preferences:", {
+    AI: aiSelected,
+    Teacher: teacherSelected,
+    Peers: peersSelected
   });
 
-  alert("Question submitted! (We'll show answers next)");
+  // Here later we'll show the answer window and comment system
+  alert("Question submitted! (Next: show answer area)");
 }
