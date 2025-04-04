@@ -25,15 +25,19 @@
   }
   
   /* Sidebar */
-  nav {
+  /* Sidebar */
+nav {
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 160px;
+    height: 100vh; /* Ensures full height */
+    width: 160px; /* Sidebar width */
+    max-width: 100%; /* Prevents it from overflowing */
     background-color: #333;
     padding-top: 40px;
-  }
+    overflow-x: hidden; /* Hides horizontal overflow */
+}
+
   
   nav ul {
     list-style: none;
