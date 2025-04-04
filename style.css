@@ -1,42 +1,95 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Apply Global Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+    background-color: #E3F2FD; /* Light Blue Background */
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    text-align: center;
 }
 
-.header {
-    text-align: center;
-    background-color: #007bff;
-    color: white;
-    padding: 20px;
+/* Heading Style */
+h1 {
+    color: #0D47A1; /* Dark Blue */
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+/* Ask Doubt Section */
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button Colors */
+button:nth-child(1) { background-color: #2196F3; color: white; } /* Blue */
+button:nth-child(2) { background-color: #FFCDD2; color: black; } /* Light Pink */
+button:nth-child(3) { background-color: #CE93D8; color: black; } /* Light Purple */
+button:nth-child(4) { background-color: #C5E1A5; color: black; } /* Light Green */
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Contact Section */
+.contact-support {
+    margin-top: 30px;
     font-size: 24px;
+    color: #0D47A1;
+}
+
+input, textarea {
+    width: 250px;
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #0D47A1;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 80px;
+}
+
+/* Send Button */
+.send-btn {
+    background-color: #FFD54F; /* Light Yellow */
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.send-btn:hover {
+    background-color: #FFC107; /* Darker Yellow */
+}
+
+/* Twitter Link */
+.twitter-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.twitter-link img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.twitter-link a {
+    text-decoration: none;
+    color: #1DA1F2; /* Twitter Blue */
     font-weight: bold;
 }
 
-.container {
-    text-align: center;
-    margin: 20px;
-}
-
-.ask-doubt-box {
-    width: 300px;
-    padding: 15px;
-    background-color: white;
-    margin: auto;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0px 0px 10px gray;
-}
-
-.ask-doubt-box:hover {
-    background-color: #e6e6e6;
-}
-
-.contact-support {
-    text-align: center;
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #007bff;
-    color: white;
+a:hover {
+    text-decoration: underline;
 }
