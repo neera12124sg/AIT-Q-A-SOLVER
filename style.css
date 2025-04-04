@@ -1,105 +1,42 @@
-/* Body and font */
 body {
-    background: linear-gradient(135deg, #e3f2fd, #fce4ec, #e8f5e9, #fff9c4);
-    font-family: 'Segoe UI', sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
-  }
-  
-  /* Header */
-  header {
-    background-color: #1976d2;
-    color: white;
+    background-color: #f4f4f4;
+}
+
+.header {
     text-align: center;
+    background-color: #007bff;
+    color: white;
     padding: 20px;
-    font-size: 28px;
-  }
-  
-  /* Ask Doubt Button */
-  #askDoubtBtn {
-    display: block;
-    margin: 20px auto;
-    padding: 12px 24px;
-    font-size: 20px;
-    background-color: #2196f3;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  /* Subject List Buttons */
-  #subjectList {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.container {
     text-align: center;
-    margin-top: 10px;
-  }
-  
-  #subjectList button {
-    margin: 8px;
-    padding: 10px 18px;
-    background-color: #ce93d8;
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 16px;
-  }
-  
-  /* Footer Section */
-  footer {
-    background-color: #f1f1f1;
+    margin: 20px;
+}
+
+.ask-doubt-box {
+    width: 300px;
+    padding: 15px;
+    background-color: white;
+    margin: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.ask-doubt-box:hover {
+    background-color: #e6e6e6;
+}
+
+.contact-support {
+    text-align: center;
+    margin-top: 50px;
     padding: 20px;
-    font-size: 14px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  /* Footer content layout */
-  .footer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-  }
-  
-  /* PC view: footer two-column */
-  @media (min-width: 768px) {
-    .footer-content {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-  
-    .footer-left,
-    .footer-right {
-      width: 45%;
-      text-align: left;
-    }
-  }
-  
-  /* Footer Left */
-  .footer-left p {
-    margin: 8px 0;
-  }
-  
-  /* Input & Comment Box */
-  footer input,
-  footer textarea {
-    width: 100%;
-    margin: 8px 0;
-    padding: 10px;
-    font-size: 14px;
-  }
-  
-  /* Submit Button */
-  footer button {
-    padding: 10px 20px;
-    background-color: #64b5f6;
+    background-color: #007bff;
     color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
+}
