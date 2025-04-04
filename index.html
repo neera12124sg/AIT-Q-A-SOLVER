@@ -8,16 +8,17 @@
 </head>
 <body>
   <!-- Navigation Sidebar -->
-  <nav>
+  <nav id="sidebar">
     <ul>
       <li><a href="#" onclick="showSection('askDoubtSection')">Ask Doubt</a></li>
       <li><a href="#" onclick="showSection('contactSection')">Contact</a></li>
     </ul>
   </nav>
+
   <!-- Toggle Button for Mobile -->
   <button id="sidebarToggle" onclick="toggleSidebar()">☰</button>
 
-  <!-- Header (Always Visible) -->
+  <!-- Header -->
   <header>
     <h1>MIT AOE Solver</h1>
   </header>
@@ -26,35 +27,55 @@
   <section id="askDoubtSection">
     <button id="askDoubtBtn">ASK DOUBT</button>
     <div id="subjectList" style="display: none;">
-      <button>Physics</button>
-      <button>Chemistry</button>
-      <button>Electronics</button>
-      <button>Mechanics</button>
+      <button onclick="showQuestionForm()">Physics</button>
+      <button onclick="showQuestionForm()">Chemistry</button>
+      <button onclick="showQuestionForm()">Electronics</button>
+      <button onclick="showQuestionForm()">Mechanics</button>
     </div>
-    <!-- Question Form (Hidden Initially) -->
-  <div id="questionForm" style="display: none; margin-top: 20px; text-align: center;">
-    <textarea id="questionInput" placeholder="Type your question here..." rows="4" style="width: 90%; max-width: 500px;"></textarea>
-    <br><br>
-    <input type="file" id="imageUpload" accept="image/*">
-    <br><br>
-    <label><input type="checkbox" id="prefAI"> AI</label>
-    <label><input type="checkbox" id="prefTeacher"> Teacher</label>
-    <label><input type="checkbox" id="prefPeers"> Peers</label>
-    <br><br>
-    <button onclick="submitQuestion()">Submit Question</button>
-  </div>
+
+    <!-- Question Form -->
+    <div id="questionForm" style="display: none; margin-top: 20px; text-align: center;">
+      <textarea id="questionInput" placeholder="Type your question here..." rows="4" style="width: 90%; max-width: 500px;"></textarea>
+      <br><br>
+      <input type="file" id="imageUpload" accept="image/*">
+      <br><br>
+      <label><input type="checkbox" id="prefAI"> AI</label>
+      <label><input type="checkbox" id="prefTeacher"> Teacher</label>
+      <label><input type="checkbox" id="prefPeers"> Peers</label>
+      <br><br>
+      <button onclick="submitQuestion()">Submit Question</button>
+    </div>
   </section>
 
-  <!-- Contact Support Section -->
+  <!-- Answer Display Section -->
+  <section id="answerSection" style="display: none; text-align: center; padding: 20px;">
+    <h2>Your Question</h2>
+    <p id="displayedQuestion"></p>
+    <img id="displayedImage" style="max-width: 90%; display: none;" />
+    
+    <h3>Answers</h3>
+    <div id="aiAnswer" style="display: none;">
+      <strong>AI:</strong>
+      <p>This is an auto-generated response from the AI.</p>
+    </div>
+    <div id="teacherAnswer" style="display: none;">
+      <strong>Teacher:</strong>
+      <p>Waiting for teacher response...</p>
+    </div>
+    <div id="peersAnswer" style="display: none;">
+      <strong>Peers:</strong>
+      <p>Waiting for peers to respond...</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
   <section id="contactSection">
     <h3>Contact Support</h3>
     <form action="https://formspree.io/f/xpwpynak" method="POST">
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Comment" required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      
-      
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Comment" required></textarea>
+      <button type="submit">Send</button>
+    </form>
 
     <!-- Social Links -->
     <p class="social-links">
@@ -64,7 +85,7 @@
     </p>
   </section>
 
-  <!-- External JavaScript File -->
+  <!-- Link to JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
