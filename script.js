@@ -6,13 +6,19 @@ document.getElementById('askDoubtBtn').addEventListener('click', () => {
   list.style.display = list.style.display === 'none' ? 'block' : 'none';
 });
 
-// Function to show only the selected section
+// Function to show the selected section and hide the other
 function showSection(sectionId) {
-  document.getElementById('askDoubtSection').style.display = 'none';
-  document.getElementById('contactSection').style.display = 'none';
+  const askSection = document.getElementById('askDoubtSection');
+  const contactSection = document.getElementById('contactSection');
 
-  document.getElementById(sectionId).style.display = 'block';
+  if (sectionId === 'askDoubtSection') {
+    askSection.style.display = 'block';
+    contactSection.style.display = 'none';
+  } else {
+    askSection.style.display = 'none';
+    contactSection.style.display = 'block';
+  }
 }
 
-// Set default view (Ask Doubt section visible initially)
+// Initially show Ask Doubt section
 showSection('askDoubtSection');
