@@ -4,7 +4,6 @@ console.log("MIT AOE Solver Loaded!");
 document.getElementById('askDoubtBtn').addEventListener('click', () => {
   const list = document.getElementById('subjectList');
   const form = document.getElementById('questionForm');
-  // Toggle subject list visibility
   const isVisible = list.style.display === 'block';
   list.style.display = isVisible ? 'none' : 'block';
   // Always hide the question form when toggling the subject list
@@ -19,7 +18,7 @@ subjectButtons.forEach(button => {
   });
 });
 
-// Function to show the selected section and hide the other sections
+// Function to show the selected section and hide others
 function showSection(sectionId) {
   const askSection = document.getElementById('askDoubtSection');
   const contactSection = document.getElementById('contactSection');
@@ -35,7 +34,7 @@ function showSection(sectionId) {
     answerSection.style.display = 'none';
   }
   
-  // Also hide subject list and question form when switching sections
+  // Hide subject list and question form when switching sections
   document.getElementById('subjectList').style.display = 'none';
   document.getElementById('questionForm').style.display = 'none';
 }
@@ -43,7 +42,7 @@ function showSection(sectionId) {
 // Initially show Ask Doubt section
 showSection('askDoubtSection');
 
-// Function to handle question submission and simulate answers
+// Function to handle question submission and simulate responses
 function submitQuestion() {
   const question = document.getElementById('questionInput').value.trim();
   const imageFile = document.getElementById('imageUpload').files[0];
@@ -56,46 +55,79 @@ function submitQuestion() {
     return;
   }
   
-  // Hide Ask Doubt and Contact sections, then show the Answer section
+  // Hide Ask Doubt and Contact sections; show Answer section
   document.getElementById('askDoubtSection').style.display = 'none';
   document.getElementById('contactSection').style.display = 'none';
   document.getElementById('answerSection').style.display = 'block';
   
-  // Display the submitted question
+  // Display the submitted question in the questionTextContainer
   document.getElementById('displayedQuestion').textContent = question;
   
-  // Display the uploaded image if available
+  // Handle image display if available
   const displayedImage = document.getElementById('displayedImage');
   if (imageFile) {
     const reader = new FileReader();
     reader.onload = function(e) {
       displayedImage.src = e.target.result;
-      displayedImage.style.display = 'block';
+      document.getElementById('questionImageContainer').style.display = 'block';
     };
     reader.readAsDataURL(imageFile);
   } else {
-    displayedImage.style.display = 'none';
+    document.getElementById('questionImageContainer').style.display = 'none';
   }
   
-  // Simulate responses based on preferences
+  // Initially hide the answers container and set button text
+  document.getElementById('answersContainer').style.display = 'none';
+  document.getElementById('seeAnswersBtn').textContent = 'See Answers';
+  
+  // Immediately show AI answer if selected
   document.getElementById('aiAnswer').style.display = prefAI ? 'block' : 'none';
-  document.getElementById('teacherAnswer').style.display = prefTeacher ? 'block' : 'none';
-  document.getElementById('peersAnswer').style.display = prefPeers ? 'block' : 'none';
   
-  // Log details for debugging (optional)
-  console.log("Question Submitted:", question);
-  console.log("Image File:", imageFile);
-  console.log("Preferences:", { AI: prefAI, Teacher: prefTeacher, Peers: prefPeers });
+  // Simulate Teacher response after 3 seconds if selected
+  if (prefTeacher) {
+    setTimeout(() => {
+      document.getElementById('teacherAnswer').innerHTML = "<strong>Teacher:</strong><p>This is a simulated teacher response.</p>";
+      document.getElementById('teacherAnswer').style.display = 'block';
+    }, 3000);
+  } else {
+    document.getElementById('teacherAnswer').style.display = 'none';
+  }
   
-  // Reset the form fields
+  // Simulate Peers response after 3 seconds if selected
+  if (prefPeers) {
+    setTimeout(() => {
+      document.getElementById('peersAnswer').innerHTML = "<strong>Peers:</strong><p>This is a simulated peer response.</p>";
+      document.getElementById('peersAnswer').style.display = 'block';
+    }, 3000);
+  } else {
+    document.getElementById('peersAnswer').style.display = 'none';
+  }
+  
+  // Reset form fields
   document.getElementById('questionInput').value = '';
   document.getElementById('imageUpload').value = '';
   document.getElementById('prefAI').checked = false;
   document.getElementById('prefTeacher').checked = false;
   document.getElementById('prefPeers').checked = false;
+  
+  console.log("Question submitted:", question);
 }
 
-// Mobile sidebar toggle function (if used)
+// Function to toggle the display of answers
+function toggleAnswers() {
+  const answersContainer = document.getElementById('answersContainer');
+  const btn = document.getElementById('seeAnswersBtn');
+  
+  if (answersContainer.style.display === 'none' || answersContainer.style.display === '') {
+    answersContainer.style.display = 'block';
+    btn.textContent = 'Hide Answers';
+  } else {
+    answersContainer.style.display = 'none';
+    btn.textContent = 'See Answers';
+  }
+}
+
+// Mobile sidebar toggle function (if applicable)
 function toggleSidebar() {
   const nav = document.getElementById('sidebar');
   nav.classList.toggle('collapsed');
