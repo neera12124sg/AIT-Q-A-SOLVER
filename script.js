@@ -1,13 +1,12 @@
-<script>
 console.log("MIT AOE Solver Loaded!");
 
-// Sidebar toggle
+// ====== Sidebar Toggle ======
 function toggleSidebar() {
   const nav = document.getElementById('sidebar');
   nav.classList.toggle('collapsed');
 }
 
-// Section switcher
+// ====== Section Switcher ======
 function showSection(sectionId) {
   const sections = ['askDoubtSection', 'contactSection', 'answerSection'];
   sections.forEach(id => {
@@ -15,27 +14,35 @@ function showSection(sectionId) {
   });
   document.getElementById(sectionId).style.display = 'block';
 
+  // Reset Ask Doubt view every time
   document.getElementById('subjectList').style.display = 'none';
   document.getElementById('questionForm').style.display = 'none';
 }
 
-// Show Ask Doubt on load
+// ====== Show Ask Doubt on Load ======
 showSection('askDoubtSection');
 
-// Ask Doubt button logic
+// ====== Ask Doubt Button Logic (toggle both subject list & form) ======
 document.getElementById('askDoubtBtn').addEventListener('click', () => {
   const list = document.getElementById('subjectList');
   const form = document.getElementById('questionForm');
-  const isVisible = list.style.display === 'block';
-  list.style.display = isVisible ? 'none' : 'block';
-  form.style.display = 'none';
+  const isVisible = list.style.display === 'block' || form.style.display === 'block';
+
+  if (isVisible) {
+    list.style.display = 'none';
+    form.style.display = 'none';
+  } else {
+    list.style.display = 'block';
+    form.style.display = 'none';
+  }
 });
 
-// Subject button show form
+// ====== Subject Button Logic (toggle question form) ======
 const subjectButtons = document.querySelectorAll('#subjectList button');
 subjectButtons.forEach(button => {
   button.addEventListener('click', () => {
-    document.getElementById('questionForm').style.display = 'block';
+    const form = document.getElementById('questionForm');
+    form.style.display = form.style.display === 'block' ? 'none' : 'block';
   });
 });
 
@@ -73,6 +80,7 @@ function submitQuestion() {
 
     displayAnswer(newDoubt);
 
+    // Reset form
     document.getElementById('questionInput').value = '';
     document.getElementById('imageUpload').value = '';
     document.getElementById('prefAI').checked = false;
@@ -141,4 +149,3 @@ function vote(button) {
 function generateAIAnswer(question) {
   return `AI thinks the answer to "${question}" might involve some basic concepts from your subject. Please review your textbook or ask a teacher for deeper help.`;
 }
-</script>
