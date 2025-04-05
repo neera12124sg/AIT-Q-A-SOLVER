@@ -5,7 +5,6 @@
   box-sizing: border-box;
 }
 
-/* Layout and Background */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #b3d4fc, #f7c1f7, #d1c2f0, #c2f0c2, #fff6b3);
@@ -14,7 +13,6 @@ body {
   padding: 20px;
 }
 
-/* Header */
 header {
   background-color: #4a90e2;
   padding: 20px;
@@ -24,7 +22,6 @@ header {
   margin-bottom: 30px;
 }
 
-/* Sidebar */
 nav {
   position: fixed;
   top: 0;
@@ -33,12 +30,10 @@ nav {
   width: 160px;
   background-color: #333;
   padding-top: 40px;
-  overflow-x: hidden;
 }
 
 nav ul {
   list-style: none;
-  padding: 0;
 }
 
 nav li {
@@ -59,148 +54,49 @@ nav a:hover {
   background-color: #555;
 }
 
-/* Ask Doubt Section */
-#askDoubtSection {
-  display: block;
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-#askDoubtBtn {
-  background-color: #ff66b2;
-  color: white;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 25px;
-  font-size: 1.1em;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#askDoubtBtn:hover {
-  background-color: #ff3385;
-}
-
-#subjectList {
-  margin-top: 15px;
-}
-
-#subjectList button {
-  margin: 5px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #a64dff;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#subjectList button:hover {
-  background-color: #7a33cc;
-}
-
-/* Contact Section */
-#contactSection {
-  display: none;
-  text-align: center;
-  background-color: #d9f7be;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-#contactSection input,
-#contactSection textarea {
-  width: 80%;
-  max-width: 500px;
-  padding: 12px;
-  margin: 10px 0;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  font-size: 1em;
-}
-
-#contactSection button[type="submit"] {
-  background-color: #00cc99;
-  color: white;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  font-size: 1em;
-}
-
-#contactSection button:hover {
-  background-color: #009973;
-}
-
-#contactSection .social-links {
-  margin-top: 20px;
-}
-
-#contactSection .social-links a {
-  display: inline-block;
-  margin: 0 10px;
-  color: #0066cc;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-#contactSection .social-links a:hover {
-  text-decoration: underline;
-}
-
-/* Answer Section Layout */
-.answer-page {
-  text-align: center;
-}
-
-.question-box {
+/* Question Container */
+.question-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+  background-color: #f8f9fa;
   padding: 20px;
-  border: 2px solid #ccc;
   border-radius: 10px;
-  background-color: #f0f8ff;
-  max-width: 90%;
-  margin: 0 auto 20px;
+  margin-bottom: 20px;
 }
 
-.image-preview img {
+.question-content {
+  flex: 1;
+  text-align: left;
+}
+
+.question-container img {
   width: 120px;
   height: auto;
-  border-radius: 10px;
-  border: 2px solid #aaa;
+  border-radius: 5px;
+  margin-left: 20px;
 }
 
-.question-text {
-  text-align: left;
-}
-
-.answer-block {
-  margin: 15px auto;
-  max-width: 600px;
+/* Answer Display */
+.answer-box {
+  background-color: #e6ffe6;
   padding: 15px;
-  background-color: #e8f5e9;
-  border-left: 5px solid #4caf50;
   border-radius: 10px;
-  text-align: left;
+  margin: 10px 0;
 }
 
-#toggleAnswerCommentsBtn {
-  background-color: #ffa500;
+/* Toggle Button */
+#toggleAnswersBtn {
+  background-color: #007bff;
   color: white;
-  padding: 12px 25px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 25px;
-  font-size: 1em;
+  border-radius: 10px;
   cursor: pointer;
-  margin: 20px auto;
   display: block;
+  margin: 0 auto;
 }
 
-#toggleAnswerCommentsBtn:hover {
-  background-color: #e69500;
+#toggleAnswersBtn:hover {
+  background-color: #0056b3;
 }
