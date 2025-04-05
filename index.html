@@ -15,7 +15,6 @@
     </ul>
   </nav>
 
-  <!-- Toggle Button for Mobile -->
   <button id="sidebarToggle" onclick="toggleSidebar()">☰</button>
 
   <!-- Header -->
@@ -33,7 +32,7 @@
       <button onclick="showQuestionForm()">Mechanics</button>
     </div>
 
-    <!-- Question Form (Hidden Initially) -->
+    <!-- Question Form -->
     <div id="questionForm" style="display: none; margin-top: 20px; text-align: center;">
       <textarea id="questionInput" placeholder="Type your question here..." rows="4" style="width: 90%; max-width: 500px;"></textarea>
       <br><br>
@@ -48,36 +47,39 @@
   </section>
 
   <!-- Answer Display Section -->
-  <!-- Answer Display Section -->
-<section id="answerSection" style="display: none; padding: 20px;">
-  <div id="questionContainer" style="display: flex; align-items: center; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
-    <!-- Question Text on the Left -->
-    <div id="questionTextContainer" style="flex: 1;">
-      <h2>Your Question:</h2>
-      <p id="displayedQuestion" style="font-size: 1.2em;"></p>
+  <section id="answerSection" style="display: none;">
+    <div class="answer-page">
+      <!-- Question Display -->
+      <div class="question-box">
+        <div class="image-preview" id="imagePreviewBox" style="display: none;">
+          <img id="displayedImage" alt="Uploaded" />
+        </div>
+        <div class="question-text">
+          <h2>Your Question</h2>
+          <p id="displayedQuestion"></p>
+        </div>
+      </div>
+
+      <!-- Toggle Button -->
+      <button id="toggleAnswerCommentsBtn">See Answers / Comments</button>
+
+      <!-- Answers Section -->
+      <div id="answersContainer" style="display: none;">
+        <div id="aiAnswer" class="answer-block">
+          <h3>🤖 Answer by AI</h3>
+          <p>This is an auto-generated response from the AI.</p>
+        </div>
+        <div id="teacherAnswer" class="answer-block">
+          <h3>👩‍🏫 Answer by Teacher</h3>
+          <p>Waiting for teacher response...</p>
+        </div>
+        <div id="peersAnswer" class="answer-block">
+          <h3>👥 Answer by Peers</h3>
+          <p>Waiting for peers to respond...</p>
+        </div>
+      </div>
     </div>
-    <!-- Uploaded Image on the Right -->
-    <div id="questionImageContainer" style="width: 150px; height: 150px; border: 1px solid #aaa; margin-left: 20px; display: none;">
-      <img id="displayedImage" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;" />
-    </div>
-  </div>
-  <br>
-  <button id="seeAnswersBtn" onclick="toggleAnswers()">See Answers</button>
-  <div id="answersContainer" style="display: none; margin-top: 20px; text-align: left;">
-    <div id="aiAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
-      <strong>AI:</strong>
-      <p>This is an auto-generated response from the AI.</p>
-    </div>
-    <div id="teacherAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
-      <strong>Teacher:</strong>
-      <p>Waiting for teacher response...</p>
-    </div>
-    <div id="peersAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
-      <strong>Peers:</strong>
-      <p>Waiting for peers to respond...</p>
-    </div>
-  </div>
-</section>
+  </section>
 
   <!-- Contact Section -->
   <section id="contactSection">
@@ -87,7 +89,6 @@
       <textarea name="message" placeholder="Your Comment" required></textarea>
       <button type="submit">Send</button>
     </form>
-    <!-- Social Links -->
     <p class="social-links">
       <a href="https://twitter.com/Neeraj_chopra1" target="_blank">🐦 Twitter</a> |
       <a href="https://discord.com" target="_blank">💬 Discord</a> |
@@ -95,7 +96,6 @@
     </p>
   </section>
 
-  <!-- External JavaScript File -->
   <script src="script.js"></script>
 </body>
 </html>
