@@ -1,25 +1,22 @@
 console.log("MIT AOE Solver Loaded!");
 
-// Sidebar toggle
 function toggleSidebar() {
   const nav = document.getElementById('sidebar');
-  nav.classList.toggle('active');
+  nav.classList.toggle('collapsed');
 }
 
-// Section switcher
 function showSection(sectionId) {
   document.getElementById('askDoubtSection').style.display = 'none';
   document.getElementById('contactSection').style.display = 'none';
   document.getElementById('answerSection').style.display = 'none';
   document.getElementById(sectionId).style.display = 'block';
+
   document.getElementById('subjectList').style.display = 'none';
   document.getElementById('questionForm').style.display = 'none';
 }
 
-// Show Ask Doubt on load
 showSection('askDoubtSection');
 
-// Ask Doubt button logic
 document.getElementById('askDoubtBtn').addEventListener('click', () => {
   const list = document.getElementById('subjectList');
   const form = document.getElementById('questionForm');
@@ -28,7 +25,6 @@ document.getElementById('askDoubtBtn').addEventListener('click', () => {
   form.style.display = 'none';
 });
 
-// Subject button show form
 const subjectButtons = document.querySelectorAll('#subjectList button');
 subjectButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -36,7 +32,6 @@ subjectButtons.forEach(button => {
   });
 });
 
-// Submit question function
 function submitQuestion() {
   const question = document.getElementById('questionInput').value.trim();
   const imageFile = document.getElementById('imageUpload').files[0];
@@ -50,11 +45,11 @@ function submitQuestion() {
   }
 
   showSection('answerSection');
+
   document.getElementById('displayedQuestion').textContent = question;
 
   const imagePreviewBox = document.getElementById('imagePreviewBox');
   const displayedImage = document.getElementById('displayedImage');
-
   if (imageFile) {
     const reader = new FileReader();
     reader.onload = function(e) {
@@ -78,7 +73,6 @@ function submitQuestion() {
     document.getElementById('peersAnswer').style.display = prefPeers ? 'block' : 'none';
   };
 
-  // Reset form
   document.getElementById('questionInput').value = '';
   document.getElementById('imageUpload').value = '';
   document.getElementById('prefAI').checked = false;

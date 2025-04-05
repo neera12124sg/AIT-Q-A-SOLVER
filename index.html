@@ -7,13 +7,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Sidebar -->
+  <!-- Navigation Sidebar -->
   <nav id="sidebar">
     <ul>
       <li><a href="#" onclick="showSection('askDoubtSection')">Ask Doubt</a></li>
       <li><a href="#" onclick="showSection('contactSection')">Contact</a></li>
     </ul>
   </nav>
+
   <button id="sidebarToggle" onclick="toggleSidebar()">☰</button>
 
   <!-- Header -->
@@ -48,6 +49,7 @@
   <!-- Answer Display Section -->
   <section id="answerSection" style="display: none;">
     <div class="answer-page">
+      <!-- Question Display -->
       <div class="question-box">
         <div class="question-text">
           <h2>Your Question</h2>
@@ -58,8 +60,10 @@
         </div>
       </div>
 
+      <!-- Toggle Button -->
       <button id="toggleAnswerCommentsBtn">See Answers / Comments</button>
 
+      <!-- Answers Section -->
       <div id="answersContainer" style="display: none;">
         <div id="aiAnswer" class="answer-block">
           <h3>🤖 Answer by AI</h3>
