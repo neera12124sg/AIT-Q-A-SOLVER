@@ -4,12 +4,11 @@ console.log("MIT AOE Solver Loaded!");
 document.getElementById('askDoubtBtn').addEventListener('click', () => {
   const list = document.getElementById('subjectList');
   const form = document.getElementById('questionForm');
-  list.style.display = list.style.display === 'none' ? 'block' : 'none';
-
-  // Hide form when subject list is hidden
-  if (list.style.display === 'none') {
-    form.style.display = 'none';
-  }
+  // Toggle subject list visibility
+  const isVisible = list.style.display === 'block';
+  list.style.display = isVisible ? 'none' : 'block';
+  // Always hide the question form when toggling the subject list
+  form.style.display = 'none';
 });
 
 // Show question form when any subject is clicked
@@ -20,7 +19,7 @@ subjectButtons.forEach(button => {
   });
 });
 
-// Function to show the selected section and hide the other
+// Function to show the selected section and hide the other sections
 function showSection(sectionId) {
   const askSection = document.getElementById('askDoubtSection');
   const contactSection = document.getElementById('contactSection');
@@ -35,8 +34,8 @@ function showSection(sectionId) {
     contactSection.style.display = 'block';
     answerSection.style.display = 'none';
   }
-
-  // Hide subject list and form when switching
+  
+  // Also hide subject list and question form when switching sections
   document.getElementById('subjectList').style.display = 'none';
   document.getElementById('questionForm').style.display = 'none';
 }
@@ -44,48 +43,60 @@ function showSection(sectionId) {
 // Initially show Ask Doubt section
 showSection('askDoubtSection');
 
-// Function to handle question submission
+// Function to handle question submission and simulate answers
 function submitQuestion() {
-  const question = document.getElementById('questionInput').value;
-  const image = document.getElementById('imageUpload').files[0];
-  const useAI = document.getElementById('prefAI').checked;
-  const useTeacher = document.getElementById('prefTeacher').checked;
-  const usePeers = document.getElementById('prefPeers').checked;
-
-  if (!question.trim()) {
-    alert("Please type a question.");
+  const question = document.getElementById('questionInput').value.trim();
+  const imageFile = document.getElementById('imageUpload').files[0];
+  const prefAI = document.getElementById('prefAI').checked;
+  const prefTeacher = document.getElementById('prefTeacher').checked;
+  const prefPeers = document.getElementById('prefPeers').checked;
+  
+  if (!question) {
+    alert("Please enter your question.");
     return;
   }
-
-  // Show the answer section
+  
+  // Hide Ask Doubt and Contact sections, then show the Answer section
   document.getElementById('askDoubtSection').style.display = 'none';
   document.getElementById('contactSection').style.display = 'none';
   document.getElementById('answerSection').style.display = 'block';
-
-  // Show question
+  
+  // Display the submitted question
   document.getElementById('displayedQuestion').textContent = question;
-
-  // Show image if attached
-  const imageElement = document.getElementById('displayedImage');
-  if (image) {
+  
+  // Display the uploaded image if available
+  const displayedImage = document.getElementById('displayedImage');
+  if (imageFile) {
     const reader = new FileReader();
     reader.onload = function(e) {
-      imageElement.src = e.target.result;
-      imageElement.style.display = 'block';
+      displayedImage.src = e.target.result;
+      displayedImage.style.display = 'block';
     };
-    reader.readAsDataURL(image);
+    reader.readAsDataURL(imageFile);
   } else {
-    imageElement.style.display = 'none';
+    displayedImage.style.display = 'none';
   }
-
-  // Show answers
-  document.getElementById('aiAnswer').style.display = useAI ? 'block' : 'none';
-  document.getElementById('teacherAnswer').style.display = useTeacher ? 'block' : 'none';
-  document.getElementById('peersAnswer').style.display = usePeers ? 'block' : 'none';
+  
+  // Simulate responses based on preferences
+  document.getElementById('aiAnswer').style.display = prefAI ? 'block' : 'none';
+  document.getElementById('teacherAnswer').style.display = prefTeacher ? 'block' : 'none';
+  document.getElementById('peersAnswer').style.display = prefPeers ? 'block' : 'none';
+  
+  // Log details for debugging (optional)
+  console.log("Question Submitted:", question);
+  console.log("Image File:", imageFile);
+  console.log("Preferences:", { AI: prefAI, Teacher: prefTeacher, Peers: prefPeers });
+  
+  // Reset the form fields
+  document.getElementById('questionInput').value = '';
+  document.getElementById('imageUpload').value = '';
+  document.getElementById('prefAI').checked = false;
+  document.getElementById('prefTeacher').checked = false;
+  document.getElementById('prefPeers').checked = false;
 }
 
-// Toggle Sidebar on Mobile
+// Mobile sidebar toggle function (if used)
 function toggleSidebar() {
-  const nav = document.querySelector('nav');
+  const nav = document.getElementById('sidebar');
   nav.classList.toggle('collapsed');
 }
