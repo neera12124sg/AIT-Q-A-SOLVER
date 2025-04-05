@@ -6,16 +6,17 @@ document.getElementById('askDoubtBtn').addEventListener('click', () => {
   const form = document.getElementById('questionForm');
   const isVisible = list.style.display === 'block';
   list.style.display = isVisible ? 'none' : 'block';
-  // Always hide the question form when toggling the subject list
+  // Hide the question form when toggling the subject list
   form.style.display = 'none';
 });
 
 // Show question form when any subject is clicked
+function showQuestionForm() {
+  document.getElementById('questionForm').style.display = 'block';
+}
 const subjectButtons = document.querySelectorAll('#subjectList button');
 subjectButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    document.getElementById('questionForm').style.display = 'block';
-  });
+  button.addEventListener('click', showQuestionForm);
 });
 
 // Function to show the selected section and hide others
@@ -60,7 +61,7 @@ function submitQuestion() {
   document.getElementById('contactSection').style.display = 'none';
   document.getElementById('answerSection').style.display = 'block';
   
-  // Display the submitted question in the questionTextContainer
+  // Display the submitted question
   document.getElementById('displayedQuestion').textContent = question;
   
   // Handle image display if available
@@ -76,7 +77,7 @@ function submitQuestion() {
     document.getElementById('questionImageContainer').style.display = 'none';
   }
   
-  // Initially hide the answers container and set button text
+  // Initially, hide the answers container and set the "See Answers" button text
   document.getElementById('answersContainer').style.display = 'none';
   document.getElementById('seeAnswersBtn').textContent = 'See Answers';
   
@@ -113,7 +114,7 @@ function submitQuestion() {
   console.log("Question submitted:", question);
 }
 
-// Function to toggle the display of answers
+// Function to toggle the display of the answers container
 function toggleAnswers() {
   const answersContainer = document.getElementById('answersContainer');
   const btn = document.getElementById('seeAnswersBtn');
@@ -127,7 +128,7 @@ function toggleAnswers() {
   }
 }
 
-// Mobile sidebar toggle function (if applicable)
+// Mobile sidebar toggle function
 function toggleSidebar() {
   const nav = document.getElementById('sidebar');
   nav.classList.toggle('collapsed');
