@@ -1,82 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIT AOE Solver</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MIT AOE Solver</title> 
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Navigation Sidebar -->
+  <nav id="sidebar">
+    <ul>
+      <li><a href="#" onclick="showSection('askDoubtSection')">Ask Doubt</a></li>
+      <li><a href="#" onclick="showSection('contactSection')">Contact</a></li>
+    </ul>
+  </nav>
 
-    <!-- Sidebar Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#" onclick="showSection('askDoubtSection')">Ask Doubt</a></li>
-            <li><a href="#" onclick="showSection('contactSection')">Contact</a></li>
-        </ul>
-    </nav>
+  <!-- Toggle Button for Mobile -->
+  <button id="sidebarToggle" onclick="toggleSidebar()">☰</button>
 
-    <!-- Header -->
-    <header>
-        <h1>MIT AOE Solver</h1>
-    </header>
+  <!-- Header -->
+  <header>
+    <h1>MIT AOE Solver</h1>
+  </header>
 
-    <!-- Ask Doubt Section -->
-    <section id="askDoubtSection">
-        <button id="askDoubtBtn">ASK DOUBT</button>
-        <div id="subjectList" style="display: none;">
-            <button>Physics</button>
-            <button>Math</button>
-            <button>Electronics</button>
-        </div>
-        <form id="questionForm" style="display: none;">
-            <textarea id="questionInput" placeholder="Enter your question..."></textarea>
-            <input type="file" id="imageUpload">
-            <label><input type="checkbox" id="prefAI"> AI Answer</label>
-            <label><input type="checkbox" id="prefTeacher"> Teacher Answer</label>
-            <label><input type="checkbox" id="prefPeers"> Peers Answer</label>
-            <button type="button" onclick="submitQuestion()">Submit Question</button>
-        </form>
-    </section>
+  <!-- Ask Doubt Section -->
+  <section id="askDoubtSection">
+    <button id="askDoubtBtn">ASK DOUBT</button>
+    <div id="subjectList" style="display: none;">
+      <button onclick="showQuestionForm()">Physics</button>
+      <button onclick="showQuestionForm()">Chemistry</button>
+      <button onclick="showQuestionForm()">Electronics</button>
+      <button onclick="showQuestionForm()">Mechanics</button>
+    </div>
 
-    <!-- Answer Display Section -->
-    <section id="answerSection" style="display: none;">
-        <div class="question-container">
-            <div class="question-content">
-                <h2>Your Question</h2>
-                <p id="displayedQuestion"></p>
-            </div>
-            <img id="displayedImage" src="" alt="Uploaded Image" style="display: none;">
-        </div>
-        <button id="toggleAnswersBtn" onclick="toggleAnswers()">See Answers</button>
-        <div id="answersContainer" style="display: none;">
-            <div id="aiAnswer" class="answer-box">
-                <h3>🤖 Answer by AI</h3>
-                <p>This is an auto-generated response from the AI.</p>
-            </div>
-            <div id="teacherAnswer" class="answer-box">
-                <h3>👨‍🏫 Answer by Teacher</h3>
-                <p>Waiting for teacher response...</p>
-            </div>
-            <div id="peersAnswer" class="answer-box">
-                <h3>👥 Answer by Peers</h3>
-                <p>Waiting for peers to respond...</p>
-            </div>
-        </div>
-    </section>
+    <!-- Question Form (Hidden Initially) -->
+    <div id="questionForm" style="display: none; margin-top: 20px; text-align: center;">
+      <textarea id="questionInput" placeholder="Type your question here..." rows="4" style="width: 90%; max-width: 500px;"></textarea>
+      <br><br>
+      <input type="file" id="imageUpload" accept="image/*">
+      <br><br>
+      <label><input type="checkbox" id="prefAI"> AI</label>
+      <label><input type="checkbox" id="prefTeacher"> Teacher</label>
+      <label><input type="checkbox" id="prefPeers"> Peers</label>
+      <br><br>
+      <button onclick="submitQuestion()">Submit Question</button>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contactSection" style="display: none;">
-        <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Your Name">
-            <input type="email" placeholder="Your Email">
-            <textarea placeholder="Your Message"></textarea>
-            <button type="submit">Send</button>
-        </form>
-    </section>
+  <!-- Answer Display Section -->
+  <!-- Answer Display Section -->
+<section id="answerSection" style="display: none; padding: 20px;">
+  <div id="questionContainer" style="display: flex; align-items: center; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
+    <!-- Question Text on the Left -->
+    <div id="questionTextContainer" style="flex: 1;">
+      <h2>Your Question:</h2>
+      <p id="displayedQuestion" style="font-size: 1.2em;"></p>
+    </div>
+    <!-- Uploaded Image on the Right -->
+    <div id="questionImageContainer" style="width: 150px; height: 150px; border: 1px solid #aaa; margin-left: 20px; display: none;">
+      <img id="displayedImage" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;" />
+    </div>
+  </div>
+  <br>
+  <button id="seeAnswersBtn" onclick="toggleAnswers()">See Answers</button>
+  <div id="answersContainer" style="display: none; margin-top: 20px; text-align: left;">
+    <div id="aiAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
+      <strong>AI:</strong>
+      <p>This is an auto-generated response from the AI.</p>
+    </div>
+    <div id="teacherAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
+      <strong>Teacher:</strong>
+      <p>Waiting for teacher response...</p>
+    </div>
+    <div id="peersAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
+      <strong>Peers:</strong>
+      <p>Waiting for peers to respond...</p>
+    </div>
+  </div>
+</section>
 
-    <script src="script.js"></script>
+  <!-- Contact Section -->
+  <section id="contactSection">
+    <h3>Contact Support</h3>
+    <form action="https://formspree.io/f/xpwpynak" method="POST">
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Comment" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+    <!-- Social Links -->
+    <p class="social-links">
+      <a href="https://twitter.com/Neeraj_chopra1" target="_blank">🐦 Twitter</a> |
+      <a href="https://discord.com" target="_blank">💬 Discord</a> |
+      <a href="https://reddit.com" target="_blank">👥 Reddit</a>
+    </p>
+  </section>
 
+  <!-- External JavaScript File -->
+  <script src="script.js"></script>
 </body>
 </html>
