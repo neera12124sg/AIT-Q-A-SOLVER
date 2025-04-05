@@ -26,7 +26,7 @@ showSection('askDoubtSection');
 document.getElementById('askDoubtBtn').addEventListener('click', () => {
   const list = document.getElementById('subjectList');
   const form = document.getElementById('questionForm');
-  const isVisible = list.style.display === 'block' || form.style.display === 'block';
+  const isVisible = list.offsetParent !== null || form.offsetParent !== null;
 
   if (isVisible) {
     list.style.display = 'none';
