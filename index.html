@@ -48,33 +48,36 @@
   </section>
 
   <!-- Answer Display Section -->
-  <section id="answerSection" style="display: none; padding: 20px;">
-    <div id="questionContainer" style="display: flex; align-items: center; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
-      <div id="questionImageContainer" style="width: 150px; height: 150px; border: 1px solid #aaa; margin-right: 20px; display: none;">
-        <img id="displayedImage" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;" />
-      </div>
-      <div id="questionTextContainer" style="flex: 1;">
-        <h2>Your Question:</h2>
-        <p id="displayedQuestion" style="font-size: 1.2em;"></p>
-      </div>
+  <!-- Answer Display Section -->
+<section id="answerSection" style="display: none; padding: 20px;">
+  <div id="questionContainer" style="display: flex; align-items: center; border: 1px solid #ccc; padding: 10px; border-radius: 10px;">
+    <!-- Question Text on the Left -->
+    <div id="questionTextContainer" style="flex: 1;">
+      <h2>Your Question:</h2>
+      <p id="displayedQuestion" style="font-size: 1.2em;"></p>
     </div>
-    <br>
-    <button id="seeAnswersBtn" onclick="toggleAnswers()">See Answers</button>
-    <div id="answersContainer" style="display: none; margin-top: 20px; text-align: left;">
-      <div id="aiAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
-        <strong>AI:</strong>
-        <p>This is an auto-generated response from the AI.</p>
-      </div>
-      <div id="teacherAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
-        <strong>Teacher:</strong>
-        <p>Waiting for teacher response...</p>
-      </div>
-      <div id="peersAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
-        <strong>Peers:</strong>
-        <p>Waiting for peers to respond...</p>
-      </div>
+    <!-- Uploaded Image on the Right -->
+    <div id="questionImageContainer" style="width: 150px; height: 150px; border: 1px solid #aaa; margin-left: 20px; display: none;">
+      <img id="displayedImage" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;" />
     </div>
-  </section>
+  </div>
+  <br>
+  <button id="seeAnswersBtn" onclick="toggleAnswers()">See Answers</button>
+  <div id="answersContainer" style="display: none; margin-top: 20px; text-align: left;">
+    <div id="aiAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
+      <strong>AI:</strong>
+      <p>This is an auto-generated response from the AI.</p>
+    </div>
+    <div id="teacherAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
+      <strong>Teacher:</strong>
+      <p>Waiting for teacher response...</p>
+    </div>
+    <div id="peersAnswer" style="display: none; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px;">
+      <strong>Peers:</strong>
+      <p>Waiting for peers to respond...</p>
+    </div>
+  </div>
+</section>
 
   <!-- Contact Section -->
   <section id="contactSection">

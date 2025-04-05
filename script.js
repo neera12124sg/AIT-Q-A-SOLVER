@@ -61,7 +61,7 @@ function submitQuestion() {
   document.getElementById('contactSection').style.display = 'none';
   document.getElementById('answerSection').style.display = 'block';
   
-  // Display the submitted question
+  // Display the submitted question in the question text container
   document.getElementById('displayedQuestion').textContent = question;
   
   // Handle image display if available
@@ -77,7 +77,7 @@ function submitQuestion() {
     document.getElementById('questionImageContainer').style.display = 'none';
   }
   
-  // Initially, hide the answers container and set the "See Answers" button text
+  // Initially, hide the answers container and reset the "See Answers" button text
   document.getElementById('answersContainer').style.display = 'none';
   document.getElementById('seeAnswersBtn').textContent = 'See Answers';
   
