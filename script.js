@@ -3,7 +3,7 @@ console.log("MIT AOE Solver Loaded!");
 // Sidebar toggle
 function toggleSidebar() {
   const nav = document.getElementById('sidebar');
-  nav.classList.toggle('collapsed');
+  nav.classList.toggle('active');
 }
 
 // Section switcher
@@ -12,7 +12,6 @@ function showSection(sectionId) {
   document.getElementById('contactSection').style.display = 'none';
   document.getElementById('answerSection').style.display = 'none';
   document.getElementById(sectionId).style.display = 'block';
-
   document.getElementById('subjectList').style.display = 'none';
   document.getElementById('questionForm').style.display = 'none';
 }
@@ -50,15 +49,12 @@ function submitQuestion() {
     return;
   }
 
-  // Show answer section
   showSection('answerSection');
-
-  // Show question
   document.getElementById('displayedQuestion').textContent = question;
 
-  // Handle image
   const imagePreviewBox = document.getElementById('imagePreviewBox');
   const displayedImage = document.getElementById('displayedImage');
+
   if (imageFile) {
     const reader = new FileReader();
     reader.onload = function(e) {
@@ -70,11 +66,9 @@ function submitQuestion() {
     imagePreviewBox.style.display = 'none';
   }
 
-  // Reset answer containers
   document.getElementById('answersContainer').style.display = 'none';
   document.getElementById('toggleAnswerCommentsBtn').style.display = 'block';
 
-  // Toggle button logic
   document.getElementById('toggleAnswerCommentsBtn').onclick = function () {
     document.getElementById('answersContainer').style.display = 'block';
     document.getElementById('toggleAnswerCommentsBtn').style.display = 'none';
