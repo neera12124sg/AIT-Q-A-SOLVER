@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teacher Dashboard - MIT AOE Solver</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .subject-buttons button {
+      margin: 10px;
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    #questionList {
+      margin-top: 30px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .question-box {
+      background: #f1f1f1;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+    .answer-button {
+      margin-top: 10px;
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>MIT AOE Solver</h1>
+
+  <div class="subject-buttons">
+    <button onclick="loadQuestions('Physics')">Physics</button>
+    <button onclick="loadQuestions('Chemistry')">Chemistry</button>
+    <button onclick="loadQuestions('Electronics')">Electronics</button>
+    <button onclick="loadQuestions('Mechanics')">Mechanics</button>
+  </div>
+
+  <div id="questionList">
+    <!-- Questions will be shown here -->
+  </div>
+
+  <script>
+    const sampleQuestions = {
+      Physics: ["What is Newton's second law?", "Explain motion in a straight line."],
+      Chemistry: ["What is pH value?", "What are isotopes?"],
+      Electronics: ["What is a diode?", "Difference between AC and DC?"],
+      Mechanics: ["What is torque?", "Explain moment of inertia."]
+    };
+
+    function loadQuestions(subject) {
+      const container = document.getElementById("questionList");
+      container.innerHTML = `<h2>${subject} Questions:</h2>`;
+
+      sampleQuestions[subject].forEach((question, index) => {
+        const textareaId = `answerInput_${subject}_${index}`;
+        const answerDisplayId = `answerDisplay_${subject}_${index}`;
+
+        const box = document.createElement("div");
+        box.className = "question-box";
+        box.innerHTML = `
+          <strong>Q${index + 1}:</strong> ${question}<br/>
+          <textarea id="${textareaId}" rows="3" cols="50" placeholder="Type your answer..."></textarea><br/>
+          <button class="answer-button" onclick="submitAnswer('${textareaId}', '${answerDisplayId}')">Submit Answer ✅</button>
+          <div id="${answerDisplayId}" style="margin-top: 10px; color: green;"></div>
+        `;
+        container.appendChild(box);
+      });
+    }
+
+    function submitAnswer(inputId, displayId) {
+      const answerText = document.getElementById(inputId).value.trim();
+      const displayDiv = document.getElementById(displayId);
+
+      if (answerText !== "") {
+        displayDiv.innerHTML = `<strong>👩‍🏫 Answer (Verified Teacher):</strong><br/>${answerText}`;
+      } else {
+        alert("Please type an answer before submitting.");
+      }
+    }
+  </script>
+</body>
+</html>

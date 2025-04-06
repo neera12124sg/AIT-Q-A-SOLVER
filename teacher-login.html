@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Teacher Login - MIT AOE Solver</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    .login-box {
+      display: inline-block;
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+    }
+    button {
+      padding: 10px 20px;
+      cursor: pointer;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+    h1 {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>MIT AOE Solver</h1>
+  <div class="login-box">
+    <h2>Teacher Login</h2>
+    <input type="text" id="teacherID" placeholder="Enter ID" /><br />
+    <input type="password" id="teacherPass" placeholder="Enter Password" /><br />
+    <button onclick="validateTeacher()">Login</button>
+    <p id="loginError" style="color: red;"></p>
+  </div>
+
+  <script>
+    function validateTeacher() {
+      const id = document.getElementById('teacherID').value;
+      const pass = document.getElementById('teacherPass').value;
+      
+      // Replace with your real credentials
+      const validID = "teacher123";
+      const validPass = "pass123";
+
+      if (id === validID && pass === validPass) {
+        window.location.href = "teacher-dashboard.html"; // We'll make this next
+      } else {
+        document.getElementById('loginError').textContent = "Invalid ID or Password.";
+      }
+    }
+  </script>
+</body>
+</html>
