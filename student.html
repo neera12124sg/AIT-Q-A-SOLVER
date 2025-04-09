@@ -6,16 +6,7 @@
   <title>MIT AOE Solver</title> 
   <link rel="stylesheet" href="style.css">
   <style>
-    header {
-      background-color: #007bff;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 32px;
-      font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
+    /* Sidebar Styling */
     #sidebar {
       background-color: #111;
       color: white;
@@ -47,6 +38,7 @@
       color: #00bfff;
     }
 
+    /* General Page Styling */
     body {
       margin: 0;
       padding-left: 180px;
@@ -57,42 +49,10 @@
       padding: 20px;
     }
 
-    #askDoubtBtn, #subjectList button {
-      background-color: #ff66b2;
-      color: white;
-      padding: 12px 25px;
-      border: none;
-      border-radius: 25px;
-      font-size: 1.1em;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    #askDoubtBtn:hover {
-      background-color: #ff3385;
-    }
-
-    #subjectList {
-      margin-top: 15px;
-    }
-
-    #subjectList button {
-      margin: 5px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      background-color: #a64dff;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    #subjectList button:hover {
-      background-color: #7a33cc;
-    }
-
-    iframe {
-      border: none;
+    /* Styling for Chat Section */
+    #chatWidget {
+      display: none; /* Initially hide the widget */
+      margin-top: 20px; /* Add some space for better layout */
     }
   </style>
 </head>
@@ -101,13 +61,14 @@
   <nav id="sidebar">
     <ul>
       <li><a href="#" onclick="showSection('askDoubtSection')">Ask Doubt</a></li>
-      <li><a href="#" onclick="showSection('recentDoubtSection')">Recent Doubts</a></li>
+      <li><a href="#" onclick="showSection('getAnswerAISection')">Get Answer by AI</a></li>
       <li><a href="#" onclick="showSection('contactSection')">Contact</a></li>
       <li><a href="#" onclick="showSection('answerSheetSection')">Answer Sheet</a></li>
+      <li><a href="#" onclick="toggleChatWidget()">Student Community</a></li> <!-- New tab for chat -->
     </ul>
   </nav>
 
-  <!-- Header -->
+  <!-- Main Content Area -->
   <header>MIT AOE Solver</header>
 
   <!-- Ask Doubt Section -->
@@ -121,11 +82,18 @@
     </div>
   </section>
 
-  <!-- Recent Doubts Section -->
-  <section id="recentDoubtSection" style="display: none;">
-    <h2>Recent Doubts</h2>
-    <div class="question-box"><p><strong>Q1:</strong> What is Ohm's Law?</p></div>
-    <div class="question-box"><p><strong>Q2:</strong> Explain Newton's 3rd Law with example.</p></div>
+  <!-- Get Answer by AI Section -->
+  <section id="getAnswerAISection" style="display: none;">
+    <h2>Get Answer by AI</h2>
+    <div>
+      <label for="questionInput">Enter your question:</label>
+      <textarea id="questionInput" rows="4" cols="50"></textarea>
+      <button onclick="generateAIAnswer()">Get AI Answer</button>
+    </div>
+    <div id="aiAnswerSection" style="display: none;">
+      <h3>AI Answer:</h3>
+      <p id="aiAnswerText"></p>
+    </div>
   </section>
 
   <!-- Answer Sheet Section -->
@@ -133,7 +101,7 @@
     <h2>View Answer Sheet</h2>
     <div style="overflow-x: auto;">
       <iframe 
-        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTQ3JbzCiz0a4uD72QH6CJSJ27EvWj_OS2IFsuO5xkPxruYNHzpBT55c8HpkD7sZjXIhGz3ccrtIvKz/pubhtml?widget=true&amp;headers=false" 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTQ3JbzCiz0a4uD72QH6CJSJ27EvWj_OS2IFsuO5xkPxruYNHzpBT55c8HpkD7sZjXIhGz3ccrtIvKz/pubhtml?gid=245796099&single=true" 
         width="1200" 
         height="600">
       </iframe>
@@ -155,7 +123,32 @@
     </p>
   </section>
 
+  <!-- Chat Widget Section -->
+  <section id="chatWidget">
+    <!-- Tawk.to Chat Widget inside "Student Community" tab -->
+    <script type="text/javascript">
+      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+      (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/67f6f34f341807190ee14dce/1ioeacshp';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+      })();
+    </script>
+  </section>
+
   <script>
+    // Toggle function for showing chat widget
+    function toggleChatWidget() {
+      const chatSection = document.getElementById('chatWidget');
+      // Toggle the visibility of the chat widget
+      chatSection.style.display = chatSection.style.display === 'none' ? 'block' : 'none';
+      // Hide all other sections when chat is shown
+      document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+    }
+
     function toggleSubjects() {
       const list = document.getElementById('subjectList');
       list.style.display = list.style.display === 'none' ? 'block' : 'none';
@@ -181,6 +174,33 @@
       document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
       document.getElementById(id).style.display = 'block';
       document.getElementById('subjectList').style.display = 'none';
+      // Ensure chat is hidden when switching sections
+      document.getElementById('chatWidget').style.display = 'none';
+    }
+
+    // Predefined AI answers for questions
+    const predefinedAnswers = {
+      "what is 3rd law of motion?": "Newton's third law of motion states that for every action, there is an equal and opposite reaction.",
+      "what is 1st law of motion?": "Newton's first law of motion states that an object at rest will stay at rest, and an object in motion will stay in motion unless acted upon by an external force.",
+      "what is ions?": "Ions are charged particles formed when an atom or molecule gains or loses one or more electrons.",
+      "write 5 chemical compounds": "1. Water (H2O) 2. Sodium Chloride (NaCl) 3. Carbon Dioxide (CO2) 4. Ammonia (NH3) 5. Sulfuric Acid (H2SO4)",
+      "use of applied mechanics": "Applied mechanics is used in designing machines, analyzing forces in structural engineering, vehicle dynamics, and biomechanics.",
+      "write some electronic components": "Some electronic components include Resistors, Capacitors, Diodes, Transistors, and Inductors."
+    };
+
+    // Placeholder for AI Answer Section (no API call)
+    function generateAIAnswer() {
+      const question = document.getElementById('questionInput').value.trim().toLowerCase();
+      if (!question) {
+        alert("Please enter your question.");
+        return;
+      }
+
+      // Check if the question has a predefined answer
+      const answer = predefinedAnswers[question] || "AI couldn't find a predefined answer for this question. Please try again with another question.";
+      
+      document.getElementById('aiAnswerText').textContent = answer;
+      document.getElementById('aiAnswerSection').style.display = 'block';
     }
   </script>
 </body>
