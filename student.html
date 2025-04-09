@@ -158,6 +158,7 @@
       <li><a href="#" onclick="showSection('askDoubtSection')">Ask Doubt</a></li>
       <li><a href="#" onclick="showSection('recentDoubtSection')">Recent Doubts</a></li>
       <li><a href="#" onclick="showSection('contactSection')">Contact</a></li>
+      <li><a href="#" onclick="showSection('answerSheetSection')">Answer Sheet</a></li> <!-- ✅ NEW -->
     </ul>
   </nav>
 
@@ -255,6 +256,12 @@
     </div>
   </section>
 
+  <!-- ✅ Embedded Answer Sheet Section -->
+  <section id="answerSheetSection" style="display: none;">
+    <h2>View Answer Sheet</h2>
+    <iframe src="https://docs.google.com/spreadsheets/d/1eHWzN7BLI4CijzkXBsDzUpIiSzYVNC1G8qgunTNRT5s/pubhtml?widget=true&amp;headers=false" width="100%" height="600" style="border: none;"></iframe>
+  </section>
+
   <!-- Contact Section -->
   <section id="contactSection" style="display: none;">
     <h3>Contact Support</h3>
@@ -330,7 +337,7 @@
       document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
       document.getElementById(sectionId).style.display = 'block';
 
-      // ✅ Reset Ask Doubt form and subject list when switching sections
+      // Reset Ask Doubt form and subject list
       document.getElementById('questionForm').style.display = 'none';
       document.getElementById('subjectList').style.display = 'none';
       document.getElementById('questionInput').value = '';
