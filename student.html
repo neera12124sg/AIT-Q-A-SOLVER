@@ -6,6 +6,7 @@
   <title>MIT AOE Solver</title> 
   <link rel="stylesheet" href="style.css">
   <style>
+    /* Existing CSS styles from before (unchanged for brevity) */
     header {
       background-color: #007bff;
       color: white;
@@ -158,14 +159,12 @@
       <li><a href="#" onclick="showSection('askDoubtSection')">Ask Doubt</a></li>
       <li><a href="#" onclick="showSection('recentDoubtSection')">Recent Doubts</a></li>
       <li><a href="#" onclick="showSection('contactSection')">Contact</a></li>
-      <li><a href="#" onclick="showSection('answerSheetSection')">Answer Sheet</a></li> <!-- ✅ NEW -->
+      <li><a href="#" onclick="showSection('answerSheetSection')">Answer Sheet</a></li>
     </ul>
   </nav>
 
   <!-- Header -->
-  <header>
-    MIT AOE Solver
-  </header>
+  <header>MIT AOE Solver</header>
 
   <!-- Ask Doubt Section -->
   <section id="askDoubtSection">
@@ -256,10 +255,10 @@
     </div>
   </section>
 
-  <!-- ✅ Embedded Answer Sheet Section -->
+  <!-- Answer Sheet Section with updated iframe -->
   <section id="answerSheetSection" style="display: none;">
     <h2>View Answer Sheet</h2>
-    <iframe src="https://docs.google.com/spreadsheets/d/1eHWzN7BLI4CijzkXBsDzUpIiSzYVNC1G8qgunTNRT5s/pubhtml?widget=true&amp;headers=false" width="100%" height="600" style="border: none;"></iframe>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTQ3JbzCiz0a4uD72QH6CJSJ27EvWj_OS2IFsuO5xkPxruYNHzpBT55c8HpkD7sZjXIhGz3ccrtIvKz/pubhtml?widget=true&amp;headers=false" width="100%" height="600" style="border: none;"></iframe>
   </section>
 
   <!-- Contact Section -->
@@ -337,7 +336,6 @@
       document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
       document.getElementById(sectionId).style.display = 'block';
 
-      // Reset Ask Doubt form and subject list
       document.getElementById('questionForm').style.display = 'none';
       document.getElementById('subjectList').style.display = 'none';
       document.getElementById('questionInput').value = '';
