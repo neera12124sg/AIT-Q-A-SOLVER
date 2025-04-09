@@ -125,17 +125,9 @@
 
   <!-- Chat Widget Section -->
   <section id="chatWidget">
-    <!-- Tawk.to Chat Widget inside "Student Community" tab -->
-    <script type="text/javascript">
-      var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-      (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/67f6f34f341807190ee14dce/1ioeacshp';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-      })();
+    <!-- Chatango Widget inside "Student Community" tab -->
+    <script id="cid0020000405233929517" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 707px;height: 512px;">
+      {"handle":"studentcommunity","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}
     </script>
   </section>
 
@@ -185,20 +177,12 @@
       "what is ions?": "Ions are charged particles formed when an atom or molecule gains or loses one or more electrons.",
       "write 5 chemical compounds": "1. Water (H2O) 2. Sodium Chloride (NaCl) 3. Carbon Dioxide (CO2) 4. Ammonia (NH3) 5. Sulfuric Acid (H2SO4)",
       "use of applied mechanics": "Applied mechanics is used in designing machines, analyzing forces in structural engineering, vehicle dynamics, and biomechanics.",
-      "write some electronic components": "Some electronic components include Resistors, Capacitors, Diodes, Transistors, and Inductors."
+      "write some electronic components": "Some electronic components include Resistors, Capacitors, Diodes, Transistors, and Integrated Circuits."
     };
 
-    // Placeholder for AI Answer Section (no API call)
     function generateAIAnswer() {
-      const question = document.getElementById('questionInput').value.trim().toLowerCase();
-      if (!question) {
-        alert("Please enter your question.");
-        return;
-      }
-
-      // Check if the question has a predefined answer
-      const answer = predefinedAnswers[question] || "AI couldn't find a predefined answer for this question. Please try again with another question.";
-      
+      const question = document.getElementById('questionInput').value.toLowerCase();
+      const answer = predefinedAnswers[question] || "Sorry, I do not have an answer to this question.";
       document.getElementById('aiAnswerText').textContent = answer;
       document.getElementById('aiAnswerSection').style.display = 'block';
     }
