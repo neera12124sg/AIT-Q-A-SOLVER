@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Student Community</title> 
+  <title>Student Community</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #FFB6C1, #D3FFCE, #E6E6FA); /* Gradient from pink to light green to light purple */
       text-align: center;
-      background-color: #e0f7fa; /* Soft light blue background */
-      color: #111; /* Dark text for readability */
       margin: 0;
       padding: 0;
     }
 
     h1 {
       margin-top: 20px;
-      color: #00bfff; /* Light blue for the title to match the theme */
+      color: #333;
     }
 
     .chat-widget-container {
@@ -24,12 +23,59 @@
       display: flex;
       justify-content: center;
     }
+
+    /* Sidebar Styling (to match with student.html) */
+    #sidebar {
+      background-color: #111;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 100%;
+      padding-top: 60px;
+    }
+
+    #sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #sidebar ul li {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    #sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #sidebar ul li a:hover {
+      color: #00bfff;
+    }
+
+    /* General Page Styling */
+    section {
+      padding: 20px;
+    }
   </style>
 </head>
 <body>
-  <h1>Mit-aoe solver Student Community!</h1>
+  <!-- Sidebar -->
+  <nav id="sidebar">
+    <ul>
+      <li><a href="student.html">Home</a></li>
+      <li><a href="studentcommunity.html">Student Community</a></li> <!-- Student Community Link -->
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <h1>Welcome to the Student Community!</h1>
   
   <div class="chat-widget-container">
+    <!-- Chatango Widget inside "Student Community" tab -->
     <script id="cid0020000405233929517" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 707px;height: 512px;">
       {"handle":"studentcommunity","arch":"js","styles":{"a":"CC0000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"CC0000","l":"CC0000","m":"CC0000","n":"FFFFFF","p":"10","q":"CC0000","r":100,"fwtickm":1}}
     </script>
