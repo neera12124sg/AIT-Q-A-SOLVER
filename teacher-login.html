@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding-top: 50px;
+      background: #f0f4ff;
     }
     .login-box {
       display: inline-block;
@@ -33,6 +34,18 @@
     h1 {
       color: #333;
     }
+    .demo-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e8f5e9;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #222;
+    }
+    .demo-box strong {
+      color: #007bff;
+    }
   </style>
 </head>
 <body>
@@ -43,6 +56,12 @@
     <input type="password" id="teacherPass" placeholder="Enter Password" /><br />
     <button onclick="validateTeacher()">Login</button>
     <p id="loginError" style="color: red;"></p>
+
+    <!-- Demo credentials -->
+    <div class="demo-box">
+      <p><strong>Demo ID:</strong> teacher123</p>
+      <p><strong>Demo Password:</strong> pass123</p>
+    </div>
   </div>
 
   <script>
@@ -50,16 +69,16 @@
       const id = document.getElementById('teacherID').value;
       const pass = document.getElementById('teacherPass').value;
       
-      // Replace with your real credentials
+      // Demo credentials
       const validID = "teacher123";
       const validPass = "pass123";
 
       if (id === validID && pass === validPass) {
-        window.location.href = "teacher-dashboard.html"; // We'll make this next
+        window.location.href = "teacher-dashboard.html"; // redirect after login
       } else {
         document.getElementById('loginError').textContent = "Invalid ID or Password.";
       }
     }
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92c301e8b90abcea',t:'MTc0Mzk2MDU2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
